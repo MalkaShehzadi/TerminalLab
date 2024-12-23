@@ -1,10 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function NotFoundScreen() {
+export default function ProductDetailsScreen({ route }) {
+  const { id } = route.params;
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Page Not Found</Text>
+      <Text>Product ID: {id}</Text>
+      <Text>Details about the product will appear here.</Text>
     </View>
   );
 }
@@ -14,11 +17,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  text: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#000',
   },
 });

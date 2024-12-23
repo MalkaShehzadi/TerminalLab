@@ -1,20 +1,15 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from '@/screens/HomeScreen';
-import DetailsScreen from '@/screens/DetailsScreen';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import BuyerHomeScreen from '@/screens/BuyerHomeScreen';
+import SellerDashboardScreen from '@/screens/SellerDashboardScreen';
 
-type RootStackParamList = {
-  Home: undefined;
-  Details: { post: { title: string; body: string } };
-};
-
-const Stack = createStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator();
 
 export default function AppNavigator() {
   return (
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Details" component={DetailsScreen} />
-    </Stack.Navigator>
+    <Tab.Navigator>
+      <Tab.Screen name="Buyer" component={BuyerHomeScreen} />
+      <Tab.Screen name="Seller" component={SellerDashboardScreen} />
+    </Tab.Navigator>
   );
 }
